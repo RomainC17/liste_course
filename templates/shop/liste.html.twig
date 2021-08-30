@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de course
+{% endblock %}
+
+{% block body %}
+	<ul>
+		{# afficher le tableau d'objet Article #}
+		{% for a in Article  %}
+			<li>{{a.id }}  - {{a.name }} 
+			<a href="{{ path('article_modifier',{ id:a.id }) }}">Modifier</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	
+	<br><br>
+		<a href="{{ path('article_ajouter') }}">Ajouter un Article</a>
+		<br><br>
+
+	<form action="{{ path('article_ajouter') }}" method="POST">
+
+		<input name="nom" placeholder="Nom article">
+		<br><br>
+		<button type="submit">Ajouter</button>
+	</form>
+
+{% endblock %}
