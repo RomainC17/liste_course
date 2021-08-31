@@ -18,14 +18,14 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=70)
+     * @ORM\Column(type="string", length=50)
      */
     private $name;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isChecked;
+    private $isBought;
 
     public function getId(): ?int
     {
@@ -44,14 +44,14 @@ class Article
         return $this;
     }
 
-    public function getIsChecked(): ?bool
+    public function getIsBought(): ?bool
     {
-        return $this->isChecked;
+        return $this->isBought;
     }
 
-    public function setIsChecked(bool $isChecked): self
+    public function setIsBought(bool $isBought): self
     {
-        $this->isChecked = $isChecked;
+        $this->isBought = $isBought;
 
         return $this;
     }
