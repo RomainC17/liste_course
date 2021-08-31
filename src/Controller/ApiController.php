@@ -38,7 +38,7 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/article/{id}", name="api_delete, methods={"DELETE"})
+     * @Route("/api/article/{id}", name="api_delete", methods={"DELETE"})
      */
     public function supprimerArticle(Article $article, EntityManagerInterface $em): Response
     {
@@ -49,7 +49,7 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/article/{id}", name="api_acheter, methods={"PUT"})
+     * @Route("/api/article/{id}", name="api_acheter", methods={"PUT"})
      */
     public function acheterArticle(Article $article, EntityManagerInterface $em): Response
     {
