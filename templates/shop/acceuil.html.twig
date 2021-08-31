@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-6">
+            <h1 class="mb-5">Liste de courses</h1>
+            <div>
+                {{form_start(form)}}
+
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-outline-dark btn-sm"><i class="fas fa-plus"></i></button>&nbsp;{{form_widget(form.name)}}
+                </div>
+
+                {{form_end(form)}}
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Acheter</th>
+                        <th scope="col">Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in article %}
+                    <tr>
+                        <th>{{a.id}}</th>
+                        <td><div {% if a.isBought == true %}{{"style='text-decoration: line-through;color:grey'"}}{% endif %}>{{a.name}}</div></td>
+                        <td><a href="{{ path('got',{'id':a.id}) }}" class="btn btn-outline-warning"><i class="fas fa-random"></i></a></td>
+                        <td><a href="{{ path('del',{'id':a.id}) }}" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
